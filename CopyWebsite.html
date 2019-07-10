@@ -1,0 +1,2408 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width">
+
+
+  <title>
+    Creating a 3D Cube Image Gallery | CSS-Tricks  </title>
+
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+
+  <meta property="fb:pages" content="124436167285">
+
+  <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="CSS-Tricks Search">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://feeds.feedburner.com/CssTricks">
+
+  <link rel="preload" href="https://css-tricks.com/wp-content/themes/CSS-Tricks-17/fonts/Rubik-Bold-kern-latin.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="https://css-tricks.com/wp-content/themes/CSS-Tricks-17/fonts/Rubik-Regular-kern-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face {
+      font-family: Rubik;
+      src:
+        url(https://css-tricks.com/wp-content/themes/CSS-Tricks-17/fonts/Rubik-Bold-kern-latin.woff2) format("woff2"),
+        url(https://css-tricks.com/wp-content/themes/CSS-Tricks-17/fonts/Rubik-Bold-kern-latin.woff) format("woff");
+      font-weight: 700;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: Rubik;
+      src:
+        url(https://css-tricks.com/wp-content/themes/CSS-Tricks-17/fonts/Rubik-Regular-kern-latin.woff2) format("woff2"),
+        url(https://css-tricks.com/wp-content/themes/CSS-Tricks-17/fonts/Rubik-Regular-kern-latin.woff) format("woff");
+      font-weight: 400;
+      font-display: swap;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://css-tricks.com/wp-content/themes/CSS-Tricks-17/style.css?cache_bust=1562264380593">
+
+
+
+<!-- This site is optimized with the Yoast SEO Premium plugin v11.5 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="The following is a guest post by Kushagra Gour (@chinchang457). Kushagra wrote to me to show me a fun interactive demo he made. It touches on many of the"/>
+<link rel="canonical" href="https://css-tricks.com/creating-a-3d-cube-image-gallery/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Creating a 3D Cube Image Gallery | CSS-Tricks" />
+<meta property="og:description" content="The following is a guest post by Kushagra Gour (@chinchang457). Kushagra wrote to me to show me a fun interactive demo he made. It touches on many of the" />
+<meta property="og:url" content="https://css-tricks.com/creating-a-3d-cube-image-gallery/" />
+<meta property="og:site_name" content="CSS-Tricks" />
+<meta property="article:publisher" content="https://www.facebook.com/CSSTricks" />
+<meta property="article:section" content="Article" />
+<meta property="article:published_time" content="2013-08-06T13:30:42+00:00" />
+<meta property="article:modified_time" content="2017-04-13T23:41:26+00:00" />
+<meta property="og:updated_time" content="2017-04-13T23:41:26+00:00" />
+<meta property="og:image" content="//css-tricks.com/wp-content/uploads/2013/08/tut1.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="The following is a guest post by Kushagra Gour (@chinchang457). Kushagra wrote to me to show me a fun interactive demo he made. It touches on many of the" />
+<meta name="twitter:title" content="Creating a 3D Cube Image Gallery | CSS-Tricks" />
+<meta name="twitter:site" content="@CSS" />
+<meta name="twitter:image" content="//css-tricks.com/wp-content/uploads/2013/08/tut1.png" />
+<meta name="twitter:creator" content="@chinchang457" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://css-tricks.com/#organization","name":"CSS-Tricks","url":"https://css-tricks.com/","sameAs":["https://www.facebook.com/CSSTricks","https://twitter.com/CSS"],"logo":{"@type":"ImageObject","@id":"https://css-tricks.com/#logo","url":"https://css-tricks.com/wp-content/uploads/2019/06/akqRGyta_400x400.jpg","width":400,"height":400,"caption":"CSS-Tricks"},"image":{"@id":"https://css-tricks.com/#logo"}},{"@type":"WebSite","@id":"https://css-tricks.com/#website","url":"https://css-tricks.com/","name":"CSS-Tricks","publisher":{"@id":"https://css-tricks.com/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://css-tricks.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://css-tricks.com/creating-a-3d-cube-image-gallery/#primaryimage","url":"//css-tricks.com/wp-content/uploads/2013/08/tut1.png"},{"@type":"WebPage","@id":"https://css-tricks.com/creating-a-3d-cube-image-gallery/#webpage","url":"https://css-tricks.com/creating-a-3d-cube-image-gallery/","inLanguage":"en-US","name":"Creating a 3D Cube Image Gallery | CSS-Tricks","isPartOf":{"@id":"https://css-tricks.com/#website"},"primaryImageOfPage":{"@id":"https://css-tricks.com/creating-a-3d-cube-image-gallery/#primaryimage"},"datePublished":"2013-08-06T13:30:42+00:00","dateModified":"2017-04-13T23:41:26+00:00","description":"The following is a guest post by Kushagra Gour (@chinchang457). Kushagra wrote to me to show me a fun interactive demo he made. It touches on many of the","breadcrumb":{"@id":"https://css-tricks.com/creating-a-3d-cube-image-gallery/#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://css-tricks.com/creating-a-3d-cube-image-gallery/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://css-tricks.com/","url":"https://css-tricks.com/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://css-tricks.com/creating-a-3d-cube-image-gallery/","url":"https://css-tricks.com/creating-a-3d-cube-image-gallery/","name":"Creating a 3D Cube Image Gallery"}}]},{"@type":"Article","@id":"https://css-tricks.com/creating-a-3d-cube-image-gallery/#article","isPartOf":{"@id":"https://css-tricks.com/creating-a-3d-cube-image-gallery/#webpage"},"author":{"@id":"https://css-tricks.com/author/chinchang/#author"},"headline":"Creating a 3D Cube Image Gallery","datePublished":"2013-08-06T13:30:42+00:00","dateModified":"2017-04-13T23:41:26+00:00","commentCount":"38","mainEntityOfPage":{"@id":"https://css-tricks.com/creating-a-3d-cube-image-gallery/#webpage"},"publisher":{"@id":"https://css-tricks.com/#organization"},"image":{"@id":"https://css-tricks.com/creating-a-3d-cube-image-gallery/#primaryimage"},"articleSection":"Article"},{"@type":["Person"],"@id":"https://css-tricks.com/author/chinchang/#author","name":"Kushagra Gour","image":{"@type":"ImageObject","@id":"https://css-tricks.com/#authorlogo","url":"https://secure.gravatar.com/avatar/6be4e636e8aacd405bed5cd15124a875?s=96&d=retro&r=pg","caption":"Kushagra Gour"},"sameAs":["https://twitter.com/chinchang457"]}]}</script>
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="CSS-Tricks &raquo; Creating a 3D Cube Image Gallery Comments Feed" href="https://css-tricks.com/creating-a-3d-cube-image-gallery/feed/" />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://css-tricks.com/wp-includes/css/dist/block-library/style.min.css?ver=5.2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='bbp-default-css'  href='https://css-tricks.com/wp-content/plugins/bbpress/templates/default/css/bbpress.css?ver=2.5.14-6684' type='text/css' media='screen' />
+<link rel='stylesheet' id='jetpack-search-widget-css'  href='https://css-tricks.com/wp-content/plugins/jetpack/modules/widgets/search/css/search-widget-frontend.css?ver=5.2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='social-logos-css'  href='https://css-tricks.com/wp-content/plugins/jetpack/_inc/social-logos/social-logos.min.css?ver=1' type='text/css' media='all' />
+<script src='https://css-tricks.com/wp-content/themes/CSS-Tricks-17/js/libs/jquery-3.4.1.min.js' type="58ea232cc6a94e19f98af76b-text/javascript"></script>
+<script type="58ea232cc6a94e19f98af76b-text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script src='https://css-tricks.com/wp-content/plugins/jetpack/_inc/build/related-posts/related-posts.min.js?ver=20190204' type="58ea232cc6a94e19f98af76b-text/javascript"></script>
+<link rel='https://api.w.org/' href='https://css-tricks.com/wp-json/' />
+<link rel='shortlink' href='https://wp.me/p354tK-BVK' />
+<link rel="alternate" type="application/json+oembed" href="https://css-tricks.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcss-tricks.com%2Fcreating-a-3d-cube-image-gallery%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://css-tricks.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcss-tricks.com%2Fcreating-a-3d-cube-image-gallery%2F&#038;format=xml" />
+<!-- Better Art Direction Styles -->
+
+
+
+<link rel='dns-prefetch' href='//v0.wordpress.com'/>
+<style type='text/css'>img#wpstats{display:none}</style>
+</head>
+
+<body class="post-template-default single single-post postid-145808 single-format-standard category-article" id="top">
+
+  <a id="skip-nav" class="skip-nav screen-reader-text" href="#maincontent">Skip to main content</a>
+
+  <div id="top-of-site-pixel-anchor"></div>
+
+  <header class="site-header" id="site-header">
+
+  <div class="logo">
+    <a href="/">
+      <div class="screen-reader-text">CSS-Tricks</div>
+      <svg class="icon-logo-star" width="35px" height="35px">
+        <use xlink:href="#icon-logo-star"></use>
+      </svg>
+      <!-- 288 35 -->
+      <svg class="icon-logo-text" width="214px" height="35px">
+        <use xlink:href="#logo"></use>
+      </svg>
+    </a>
+  </div>
+
+  <div class="header-middle-area">
+
+    <nav class="main-nav" id="main-nav">
+
+  <ul class="main-sections">
+    <li class="articles">
+      <a href="/archives/">
+        <svg class="icon-nav-articles" width="26px" height="26px">
+          <use xlink:href="#icon-nav-articles"></use>
+        </svg>
+        <span>Articles</span>
+      </a>
+    </li>
+    <li class="videos">
+      <a href="/video-screencasts/">
+        <svg class="icon-nav-video" width="26px" height="26px">
+          <use xlink:href="#icon-nav-videos"></use>
+        </svg>
+        <span>Videos</span>
+      </a>
+    </li>
+    <li class="almanac">
+      <a href="/almanac/">
+        <svg class="icon-nav-almanac" width="26px" height="26px">
+          <use xlink:href="#icon-nav-almanac"></use>
+        </svg>
+        <span>Almanac</span>
+      </a>
+    </li>
+    <li class="snippets">
+      <a href="/snippets/">
+        <svg class="icon-nav-snippets" width="26px" height="26px">
+          <use xlink:href="#icon-nav-snippets"></use>
+        </svg>
+        <span>Snippets</span>
+      </a>
+    </li>
+    <li class="newsletter">
+      <a href="/newsletters/">
+        <svg class="icon-nav-newsletter" width="26px" height="26px">
+          <use xlink:href="#icon-nav-newsletter"></use>
+        </svg>
+        <span>Newsletter</span>
+      </a>
+    </li>
+    <li class="jobs">
+      <a href="/jobs/">
+        <svg class="icon-nav-jobs" width="26px" height="26px">
+          <use xlink:href="#icon-nav-jobs"></use>
+        </svg>
+        <span>Jobs</span>
+      </a>
+    </li>
+    <li class="guides">
+      <a href="/guides/">
+        <svg class="icon-nav-guides" width="26px" height="26px">
+          <use xlink:href="#icon-nav-guides"></use>
+        </svg>
+        <span>Guides</span>
+      </a>
+    </li>
+  </ul>
+
+  <hr class="squiggle">
+
+  <div class="mobile-other-nav">
+    <a href="#top">Back to Top</a>
+    <a href="/contact/">Contact</a>
+    <a href="/about/">About</a>
+    <a href="/archives/">Archives</a>
+    <a href="/advertising/">Advertise</a>
+    <a href="/jobs/">Jobs</a>
+    <a href="/license/">License</a>
+    <a href="/subscription-options/">Subscribe</a>
+    <a href="/forums/">Forums</a>
+    <a href="/guest-posting/">Guest Posting</a>
+  </div>
+
+  <div class="mobile-social">
+    <a href="https://www.facebook.com/CSSTricks/" class="social-link-facebook">
+       <span class="screen-reader-text">Facebook</span>
+       <svg class="logo-facebook" width="20px" height="20px">
+         <use xlink:href="#logo-facebook"></use>
+       </svg>
+    </a>
+
+    <a href="https://twitter.com/css" class="social-link-twitter">
+       <span class="screen-reader-text">Twitter</span>
+       <svg class="logo-twitter" width="20px" height="20px">
+         <use xlink:href="#logo-twitter"></use>
+       </svg>
+    </a>
+
+    <a href="https://www.youtube.com/user/realcsstricks" class="social-link-youtube">
+       <span class="screen-reader-text">YouTube</span>
+       <svg class="logo-youtube" width="20px" height="20px">
+         <use xlink:href="#logo-youtube"></use>
+       </svg>
+    </a>
+
+    <a href="https://spectrum.chat/css-tricks" class="social-link-spectrum">
+       <span class="screen-reader-text">Spectrum</span>
+       <svg class="logo-spectrum" width="20px" height="20px">
+         <use xlink:href="#logo-spectrum"></use>
+       </svg>
+    </a>
+
+    <a href="https://css-tricks.com/feed/" class="social-link-rss">
+       <span class="screen-reader-text">RSS</span>
+       <svg class="logo-rss" width="20px" height="20px">
+         <use xlink:href="#logo-rss"></use>
+       </svg>
+    </a>
+  </div>
+
+</nav>
+  </div>
+
+  <div class="search" role="search" id="search-area">
+                  <div class="chw-widget"><form role="search" method="get" id="searchform" class="search-form" action="https://css-tricks.com/">
+
+  <label class="screen-reader-text" id="search-label" for="search-input">Search for:</label>
+
+  <input type="search" required name="s" id="search-input" class="search-field" placeholder="e.g. flexbox" value="">
+
+    <input type="hidden" name="orderby" value="relevance">
+  <input type="hidden" name="post_type" value="post,page,guide">
+
+  <button type="submit" class="button-search">
+    <span class="screen-reader-text">Search</span>
+    <svg class="icon-search" width="26px" height="26px">
+      <use xlink:href="#icon-search"></use>
+    </svg>
+  </button>
+
+</form></div>            </div>
+
+  <div class="mobile-actions" id="mobile-actions">
+
+    <button class="search-opener" id="search-opener">
+      <span class="screen-reader-text">Open Search</span>
+      <svg class="icon-search" width="26px" height="26px">
+        <use xlink:href="#icon-search"></use>
+      </svg>
+      <svg class="icon-search-close" width="26px" height="26px">
+        <use xlink:href="#icon-close"></use>
+      </svg>
+    </button>
+
+    <button id="mobile-nav-button" class="mobile-nav-button">
+      <span class="screen-reader-text">Open Navigation</span>
+      <svg class="icon-burger" width="28px" height="28px">
+        <use xlink:href="#icon-burger"></use>
+      </svg>
+      <svg class="icon-close" width="28px" height="28px">
+        <use xlink:href="#icon-close"></use>
+      </svg>
+    </button>
+
+  </div>
+
+</header>
+
+      <div class="all-site-wrap" id="all-site-wrap">
+
+<script type="58ea232cc6a94e19f98af76b-text/javascript">
+  var articleYear = 2013;
+  var articleAuthor = "248417";
+  var articleType = "post";
+</script>
+
+<main id="post-145808" class="instapaper_body h-entry e-content">
+
+  <article>
+
+    <header class="mega-header mega-header-article header-with-bottom-gradient header-breadcrumbs" id="maincontent">
+
+  <style>
+    .mega-header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 75%;
+      height: 90%;
+              background-image:
+          radial-gradient(ellipse closest-side, rgba(15, 14, 22, 0.5), #100e17);
+            background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0.75;
+    }
+  </style>
+
+  <div class="mega-header-inside">
+
+    <div class="mega-header-header">
+
+      <span>
+        <a href="/">Home</a> <span class="breadcrumb-separator">/</span>
+        <span>
+          <a href="/archives/">Articles</a> <span class="breadcrumb-separator">/</span>
+        </span>
+      </span>
+
+      <h1 class="p-name">
+                  Creating a 3D Cube Image&nbsp;Gallery              </h1>
+
+            <div class="article-content-meta">
+
+     <div class="author-avatar">
+    <a href="https://css-tricks.com/author/chinchang/">
+      <img alt='Photo of Kushagra Gour' src='https://secure.gravatar.com/avatar/6be4e636e8aacd405bed5cd15124a875?s=80&#038;d=retro&#038;r=pg' srcset='https://secure.gravatar.com/avatar/6be4e636e8aacd405bed5cd15124a875?s=160&#038;d=retro&#038;r=pg 2x' class='avatar avatar-80 photo' height='80' width='80' />    </a>
+    <svg class="half-circle" width="80px" height="80px">
+      <use xlink:href="#half-circle"></use>
+    </svg>
+  </div>
+
+  <div class="author-name-area">
+    <div class="author-name-prefix">
+      Author
+    </div>
+    <a class="author-name" href="https://css-tricks.com/author/chinchang/">
+      Kushagra Gour    </a>
+  </div>
+
+  <div class="article-comments-meta">
+    <div class="comments-prefix">
+      38 Comments    </div>
+    <a class="comments-link" href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comments">
+              Go to Comments
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-arrow-right">
+<path d="M7 12.5L23 12.5" stroke="url(#paint0_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1 12.5H2" stroke="url(#paint1_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.5 7L23 12.5L17.5 18" stroke="url(#paint2_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<linearGradient id="paint0_linear" x1="10.7498" y1="12.5" x2="11.3447" y2="9.73465" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF8A00"/>
+<stop offset="1" stop-color="#DA1B60"/>
+</linearGradient>
+<linearGradient id="paint1_linear" x1="1.23436" y1="12.5" x2="2.00945" y2="12.2748" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF8A00"/>
+<stop offset="1" stop-color="#DA1B60"/>
+</linearGradient>
+<linearGradient id="paint2_linear" x1="18.789" y1="17.9995" x2="23.3162" y2="17.3419" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF8A00"/>
+<stop offset="1" stop-color="#DA1B60"/>
+</linearGradient>
+</defs>
+</svg>
+    </a>
+  </div>
+
+      <div class="created">
+      <div class="created-prefix">
+        Published
+      </div>
+      <time datetime="">
+        Aug 6, 2013      </time>
+    </div>
+
+        <div class="updated">
+      <div class="updated-prefix">
+        Updated
+      </div>
+      <time datetime="">
+        Apr 13, 2017      </time>
+    </div>
+
+</div>
+
+    </div>
+
+    <div class="hero-article-ad" id="hero-article-ad">
+    </div>
+
+  </div>
+
+</header>
+
+<div class="header-gradient-after">
+  <div class="header-gradient-content">
+    <div class="header-gradient-content-inside">
+
+      <div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow noopener noreferrer" data-shared="sharing-twitter-145808" class="share-twitter sd-button no-icon" href="https://css-tricks.com/creating-a-3d-cube-image-gallery/?share=twitter" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow noopener noreferrer" data-shared="sharing-facebook-145808" class="share-facebook sd-button no-icon" href="https://css-tricks.com/creating-a-3d-cube-image-gallery/?share=facebook" target="_blank" title="Click to share on Facebook"><span>Facebook</span></a></li><li class="share-end"></li></ul></div></div></div>
+              <div class="bold-underline-links header-gradient-sponsor">
+          <p>
+  <a href="https://ad.doubleclick.net/ddm/trackclk/N728909.1044586DAVIDWALSH.NAME/B21046303.220247477;dc_trk_aid=418624587;dc_trk_cid=101013389;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=">monday.com</a> helps you manage your projects.
+</p>        </div>
+
+    </div>
+  </div>
+</div>
+    <div class="page-wrap page-wrap-single">
+
+      <div class="article-and-sidebar on-light">
+
+        <div class="article-content">
+
+
+
+          <p><em class="explanation">The following is a guest post by Kushagra Gour (<a href="https://twitter.com/chinchang457">@chinchang457</a>). Kushagra wrote to me to show me a fun interactive demo he made. It touches on many of the concepts of 3D transforms in CSS, a topic we haven't covered a ton here. So here's Kushagra taking the reins to explain these concepts through a demo.</em></p>
+<p><span id="more-145808"></span></p>
+<p>I recently redesigned <a href="http://kushagragour.in/">my website</a> and came up with a 2-face 3D cube idea for the homepage and header. On hovering it rotates between my display pic and Twitter link. While doing so I thought why not extend the idea into a full 6-face cube which could be used as an image gallery. Here is what I came up with!</p>
+<p data-height="600" style="height: 600px; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1rem 0; padding: 1rem; overflow: auto;" data-theme-id="1" data-slug-hash="lLzyB" data-user="chinchang" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/chinchang/pen/lLzyB'>3D cube image gallery</a> by Kushagra Gour (<a href='http://codepen.io/chinchang'>@chinchang</a>) on <a href='http://codepen.io'>CodePen</a></p>
+<p>This tutorial outlines how you can make something like this, emphasizing the CSS3 3D concepts.</p>
+<h3>Breaking the cube</h3>
+<p>It is quite evident by seeing the cube that the 6 faces of the cube would be 6 different HTML elements. Six <code>&lt;div&gt;</code> elements in this case. Because they need to be rotated as one cube, they need to be in a container element. If we code this basic structure, we would have something like this:</p>
+<pre rel="HTML"><code class="language-markup">&lt;div class="cube"&gt;
+    &lt;div class="cube-face"&gt;&lt;/div&gt;
+    &lt;div class="cube-face"&gt;&lt;/div&gt;
+    &lt;div class="cube-face"&gt;&lt;/div&gt;
+    &lt;div class="cube-face"&gt;&lt;/div&gt;
+    &lt;div class="cube-face"&gt;&lt;/div&gt;
+    &lt;div class="cube-face"&gt;&lt;/div&gt;
+ &lt;/div&gt;</code></pre>
+<p>Also since we will need to reference each sides to style them, we should add appropriate classes to them.</p>
+<pre rel="HTML"><code class="language-markup">&lt;div class="cube"&gt;
+    &lt;div class="cube-face  cube-face-front"&gt;&lt;/div&gt;
+    &lt;div class="cube-face  cube-face-back"&gt;&lt;/div&gt;
+    &lt;div class="cube-face  cube-face-left"&gt;&lt;/div&gt;
+    &lt;div class="cube-face  cube-face-right"&gt;&lt;/div&gt;
+    &lt;div class="cube-face  cube-face-top"&gt;&lt;/div&gt;
+    &lt;div class="cube-face  cube-face-bottom"&gt;&lt;/div&gt;
+ &lt;/div&gt;</code></pre>
+<h3>Styling the faces</h3>
+<p>We don't see anything yet. So lets give some dimension and style to the faces.</p>
+<pre rel="SCSS"><code class="language-css">$size: 150px; // cube length
+.cube {
+  width: $size;
+  height: $size;
+  position: relative;
+}
+.cube-face {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  background: red;
+  opacity: 0.5;
+}</code></pre>
+<p data-height="250" style="height: 250px; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1rem 0; padding: 1rem; overflow: auto;" data-theme-id="1" data-slug-hash="nrmKC" data-user="chinchang" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/chinchang/pen/nrmKC'>3d cube gallery tutorial - P1</a> by Kushagra Gour (<a href='http://codepen.io/chinchang'>@chinchang</a>) on <a href='http://codepen.io'>CodePen</a></p>
+<p>Note that every cube face has <code>position</code> set to <code>absolute</code> so they stack upon each other at one place. Now we can select each and position accordingly.</p>
+<p>Also I have given opacity to each face so we can see through them and see what's happening.</p>
+<h3>CSS3 3D concepts</h3>
+<p>Lets get to know some concepts of CSS3 3D. To bring the front face a little closer to the eyes, we translate it on the Z-axis:</p>
+<pre rel="CSS"><code class="language-css">.cube-face-front {
+  color: blue;
+  transform: translate3d(0, 0, 20px);
+}</code></pre>
+<p>You won't see any difference yet. Lets understand why.</p>
+<h4>perspective</h4>
+<p>As mentioned on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/perspective">MDN</a>:</p>
+<blockquote><p>The perspective CSS property determines the distance between the z=0 plane and the user in order to give to the 3D-positioned element some perspective.</p></blockquote>
+<p>In simple terms, its value determines the amount of 3D-ness in the space. The lesser the value of this property, more profound the 3D effect is. Without this property, the elements are rendered on the screen using <a href="http://en.wikipedia.org/wiki/Parallel_projection">Parallel projection</a> in which the projection lines are parallel to each other. Therefore no matter how much closer an element move towards/away from you, it will still appear to be of the same size unlike in real world. (<a href="https://css-tricks.com/almanac/properties/p/perspective/">More information on perspective</a>).</p>
+<p>We'll set this property on the parent container of our cube so that all its children (faces) are affected by a common perspective, like so:</p>
+<pre rel="SCSS"><code class="language-css">.cube {
+  width: $size;
+  height: $size;
+  position: relative;
+
+  perspective: 600px;
+}</code></pre>
+<p>As expected, now the front face does appear bigger in size. But still something is missing.</p>
+<h4>transform-style</h4>
+<p>Even after we give perspective to our scene, we still have an issue. The front face should ideally appear above all other faces, hiding them behind it. But it's not.</p>
+<p>The reason is that our cube container has no <a href="http://dev.w3.org/csswg/css-transforms/#d-rendering-context">3D rendering context</a> which is defined as follows on CSSWG:</p>
+<blockquote><p>A containing block hierarchy of one or more levels, instantiated by elements with a computed value for the ‘transform-style’ property of ‘preserve-3d’, whose elements share a common three-dimensional coordinate system.</p></blockquote>
+<p>Without an element having the <code>transform-style</code> property set as <code>preserve-3d</code>, its children are rendered as flattened, having no stacking context. Thus even when we bought the front face closer on Z-axis, it continued to render it at its original z-index with no consideration to its position in the 3D space.</p>
+<p>Try to give the <code>.cube</code> element this property and see what happens.</p>
+<pre rel="SCSS"><code class="language-css">.cube {
+  width: $size;
+  height: $size;
+  position: relative;
+
+  perspective: 600px;
+  transform-style: preserve-3d;
+}</code></pre>
+<p>It worked. Now that we have our 3D system setup, let transform this into a cube!</p>
+<h3>Positioning the faces</h3>
+<p>We'll take one face at a time and place it at its appropriate position. First let's understand the coordinate system in CSS. If we were to take one of our cube face, it is something like this:</p>
+<figure>
+    <img src='//css-tricks.com/wp-content/uploads/2013/08/tut1.png' alt='' /><figcaption>Front face lying flat with Z-axis coming towards us</figcaption></figure>
+<p>As you can see, the Z-axis is coming out of the screen straight from the element. Hence, when we translate the front face positively on the Z-axis, it appears closer to us. A point to note here is that this coordinate system is local to this element. Let's look at that more closely.</p>
+<p>We'll use our front face again and rotate it a bit about its Y-axis.</p>
+<pre rel="CSS"><code class="language-css">.cube-face-front {
+  transform: rotateY(40deg);
+}</code></pre>
+<p>Now this is how our front face looks like after the rotation:</p>
+<figure>
+    <img src='//css-tricks.com/wp-content/uploads/2013/08/tut2.png' alt='' /><figcaption>Axes rotate with the face.</figcaption></figure>
+<p>Note how the axes rotated along with element. This means that Z-axis is no longer coming straight towards us. Instead it is in the direction of the element. So if were to move it along the Z-axis now, it would move in the direction in which the element is facing.</p>
+<p>This is the concept we'll be using to position every face of our cube. Assume that the center of the cube is in the 2D place of the screen. The cube faces then need to be positioned around it in the 3D space. Remember, <strong>We rotate the face so that it faces the required direction then translate on Z-axis</strong>.</p>
+<h4>Front face</h4>
+<p>Nothing to rotate here. Simple move the front face forward by half the cube's length.</p>
+<pre rel="SCSS"><code class="language-css">.cube-face-front {
+  transform: translate3d(0, 0, $size/2);
+}</code></pre>
+<h4>Back face</h4>
+<p>The back face will face in the opposite direction to the front one. Which means it needs to be rotated by <code>180 degrees</code> about the Y-axis before translating like so:</p>
+<pre rel="SCSS"><code class="language-css">.cube-face-back {
+  transform: rotateY(180deg) translate3d(0, 0, $size/2);
+}</code></pre>
+<p>2 sides done. 4 more to go.</p>
+<h4>Left face</h4>
+<p>In case you still have doubt how the transformation are being done, lets understand this face through some visuals.</p>
+<p>This is how the left face is right now, lying flat in the 2D plane (z=0):</p>
+<figure>
+    <img src="//css-tricks.com/wp-content/uploads/2013/08/tut3.png" /><figcaption>Left face: in the 2d plane</figcaption></figure>
+<p>As the left side needs to face towards the left, we give it a rotation of <code>90 degrees</code>:</p>
+<figure>
+    <img src="//css-tricks.com/wp-content/uploads/2013/08/tut4.png" /><figcaption>Left face: after rotation</figcaption></figure>
+<p>And as with every face, we move it on its Z-axis:</p>
+<figure>
+    <img src="//css-tricks.com/wp-content/uploads/2013/08/tut5.png" /><figcaption>Left face: after translation</figcaption></figure>
+<p>This is final CSS for left face:</p>
+<pre rel="SCSS"><code class="language-css">.cube-face-left {
+  transform: rotateY(-90deg) translate3d(0, 0, $size/2);
+}</code></pre>
+<h4>Right face</h4>
+<p>This is similar to the left face, except for a positive rotation:</p>
+<pre rel="SCSS"><code class="language-css">.cube-face-right {
+  transform: rotateY(90deg) translate3d(0, 0, $size/2);
+}</code></pre>
+<h4>Top face</h4>
+<p>This face needs to be rotated about the X-axis by <code>90 degrees</code> so that it faces upwards:</p>
+<pre rel="SCSS"><code class="language-css">.cube-face-top {
+  transform: rotateX(90deg) translate3d(0, 0, $size/2);
+}</code></pre>
+<h4>Bottom face</h4>
+<p>Similarly, by giving a negative rotation we position the bottom face:</p>
+<pre rel="SCSS"><code class="language-css">.cube-face-bottom {
+  transform: rotateX(-90deg) translate3d(0, 0, $size/2);
+}</code></pre>
+<p>This completes the positioning of the faces and now we have our cube complete with the following final CSS (I have also added random colors to each face to differentiate them):</p>
+<pre rel="SCSS"><code class="language-css">$size: 150px; // cube length
+.cube {
+  margin: 100px;
+  width: $size;
+  height: $size;
+  position: relative;
+
+  perspective: 600px;
+  transform-style: preserve-3d;
+}
+.cube-face {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  background: red;
+  opacity: 0.8;
+}
+.cube-face-front {
+  background: yellow;
+  transform: translate3d(0, 0, $size/2);
+}
+.cube-face-back {
+  background: orange;
+  transform: rotateY(180deg) translate3d(0, 0, $size/2);
+}
+.cube-face-left {
+  background: green;
+  transform: rotateY(-90deg) translate3d(0, 0, $size/2);
+}
+.cube-face-right {
+  background: magenta;
+  transform: rotateY(90deg) translate3d(0, 0, $size/2);
+}
+.cube-face-top {
+  background: blue;
+  transform: rotateX(90deg) translate3d(0, 0, $size/2);
+}
+.cube-face-bottom {
+  background: red;
+  transform: rotateX(-90deg) translate3d(0, 0, $size/2);
+}</code></pre>
+<p>Now to rotate the cube we can simply apply rotations on the <code>.cube</code> element. Try giving it a rotation of <code>180 degrees</code> around Y-axis (vertically):</p>
+<pre rel="SCSS"><code class="language-css">.cube {
+  margin: 100px;
+  width: $size;
+  height: $size;
+  position: relative;
+
+  perspective: 600px;
+  transform-style: preserve-3d;
+  transform: rotateY(180deg);
+}</code></pre>
+<p>You should have something like:</p>
+<p data-height="350" style="height: 350px; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1rem 0; padding: 1rem; overflow: auto;" data-theme-id="1" data-slug-hash="CtFDr" data-user="chinchang" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/chinchang/pen/CtFDr'>3d cube gallery tutorial - P2</a> by Kushagra Gour (<a href='http://codepen.io/chinchang'>@chinchang</a>) on <a href='http://codepen.io'>CodePen</a></p>
+<p>Do you notice something wrong? We turned the cube <code>180 degrees</code> around its vertical axis. We should have seen the back face instead of the front face now. We do see it, but it is showing smaller for some reason. What did we do wrong?</p>
+<h3>Fixing the perspective</h3>
+<p>If you remember, we gave the perspective property to the cube container (<code>.cube</code>). And when we rotated that element just now, the perspective marked by the vanishing point also rotated along with it. So the vanishing point which was initially somewhere behind the 2D place came in front of the 2D plane after the rotation, causing the issue.</p>
+<p>What we ideally want is that the perspective never changes and remains constant no matter what element we transform.</p>
+<p>How do we fix this? We wrap all our elements with another <code>DIV</code> to which give the <code>perspective</code> property:</p>
+<pre rel="HTML"><code class="language-markup">&lt;div class="scene"&gt;
+  &lt;div class="cube"&gt;
+    &lt;div class="cube-face  cube-face-front"&gt;&lt;/div&gt;
+    &lt;div class="cube-face  cube-face-back"&gt;&lt;/div&gt;
+    &lt;div class="cube-face  cube-face-left"&gt;&lt;/div&gt;
+    &lt;div class="cube-face  cube-face-right"&gt;&lt;/div&gt;
+    &lt;div class="cube-face  cube-face-top"&gt;&lt;/div&gt;
+    &lt;div class="cube-face  cube-face-bottom"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<pre rel="SCSS"><code class="language-css">.scene {
+  margin: 100px;
+  width: $size;
+  height: $size;
+
+  perspective: 600px;
+}
+.cube {
+  position: relative;
+  width: inherit;
+  height: inherit;
+
+  transform-style: preserve-3d;
+  transform: rotateY(180deg);
+}</code></pre>
+<p>Check the result now and everything should appear as expected.</p>
+<p>Try giving it different rotations like <code>transform: rotateX(30deg) rotateY(30deg)</code> to play with it little. Once done, remove the <code>transform</code> property.</p>
+<h3>Adding interactivity</h3>
+<p>We now add some controls to navigate through the gallery. For this we are going to use a nice trick called the <strong>Checkbox Hack</strong>. Though we'll be using radio buttons (as only one will be selected at a time) instead of checkboxes, the concept remains the same. You can read <a href="https://css-tricks.com/the-checkbox-hack/">more about the Checkbox Hack</a> in Chris Coyier's article.</p>
+<p>Not going in much depth we add the radio buttons to our HTML:</p>
+<pre rel="HTML"><code class="language-markup">&lt;!-- CONTROLS --&gt;
+&lt;input type="radio" checked id="radio-front" name="select-face"/&gt;
+&lt;input type="radio" id="radio-back" name="select-face"/&gt;
+&lt;input type="radio" id="radio-left" name="select-face"/&gt;
+&lt;input type="radio" id="radio-right" name="select-face"/&gt;
+&lt;input type="radio" id="radio-top" name="select-face"/&gt;
+&lt;input type="radio" id="radio-bottom" name="select-face"/&gt;
+&lt;div class="scene"&gt;
+  &lt;div class="cube"&gt;
+    &lt;div class="cube-face  cube-face-front"&gt;&lt;/div&gt;
+    &lt;div class="cube-face  cube-face-back"&gt;&lt;/div&gt;
+    &lt;div class="cube-face  cube-face-left"&gt;&lt;/div&gt;
+    &lt;div class="cube-face  cube-face-right"&gt;&lt;/div&gt;
+    &lt;div class="cube-face  cube-face-top"&gt;&lt;/div&gt;
+    &lt;div class="cube-face  cube-face-bottom"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p>and following CSS to bind the cube's rotation with the radio buttons:</p>
+<pre rel="SCSS"><code class="language-css">#radio-back:checked ~ .scene .cube {
+  transform: rotateY(180deg);
+}
+#radio-left:checked ~ .scene .cube {
+  transform: rotateY(90deg);
+}
+#radio-right:checked ~ .scene .cube {
+  transform: rotateY(-90deg);
+}
+#radio-top:checked ~ .scene .cube {
+  transform: rotateX(-90deg);
+}
+#radio-bottom:checked ~ .scene .cube {
+  transform: rotateX(90deg);
+}</code></pre>
+<p>In the above CSS we simply state when each radio button is checked, what should be the rotation of the cube at that time.</p>
+<h3>Final Code</h3>
+<p>To make it more pleasing, we add some transition effect to the cube and proper alignment to get the following code:</p>
+<pre rel="HTML"><code class="language-markup">&lt;!-- CONTROLS --&gt;
+&lt;input type="radio" checked id="radio-front" name="select-face"/&gt;
+&lt;input type="radio" id="radio-left" name="select-face"/&gt;
+&lt;input type="radio" id="radio-right" name="select-face"/&gt;
+&lt;input type="radio" id="radio-top" name="select-face"/&gt;
+&lt;input type="radio" id="radio-bottom" name="select-face"/&gt;
+&lt;input type="radio" id="radio-back" name="select-face"/&gt;
+
+&lt;div&gt;&lt;/div&gt;&lt;!-- separator --&gt;
+
+&lt;div class="scene"&gt;
+  &lt;div class="cube"&gt;
+      &lt;div class="cube-face  cube-face-front"&gt;&lt;/div&gt;
+      &lt;div class="cube-face  cube-face-back"&gt;&lt;/div&gt;
+      &lt;div class="cube-face  cube-face-left"&gt;&lt;/div&gt;
+      &lt;div class="cube-face  cube-face-right"&gt;&lt;/div&gt;
+      &lt;div class="cube-face  cube-face-top"&gt;&lt;/div&gt;
+      &lt;div class="cube-face  cube-face-bottom"&gt;&lt;/div&gt;
+   &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<pre rel="SCSS"><code class="language-css">$size: 150px; // cube length
+body {
+  text-align: center;
+  padding: 50px;
+}
+.scene {
+  display: inline-block;
+  margin-top: 50px;
+  width: $size;
+  height: $size;
+
+  perspective: 600px;
+}
+.cube {
+  position: relative;
+  width: inherit;
+  height: inherit;
+
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.cube-face {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  background: red;
+  opacity: 0.8;
+}
+// faces
+.cube-face-front {
+  background: yellow;
+  transform: translate3d(0, 0, $size/2);
+}
+.cube-face-back {
+  background: black;
+  transform: rotateY(180deg) translate3d(0, 0, $size/2);
+}
+.cube-face-left {
+  background: green;
+  transform: rotateY(-90deg) translate3d(0, 0, $size/2);
+}
+.cube-face-right {
+  background: magenta;
+  transform: rotateY(90deg) translate3d(0, 0, $size/2);
+}
+.cube-face-top {
+  background: blue;
+  transform: rotateX(90deg) translate3d(0, 0, $size/2);
+}
+.cube-face-bottom {
+  background: red;
+  transform: rotateX(-90deg) translate3d(0, 0, $size/2);
+}
+// controls
+#radio-back:checked ~ .scene .cube {
+  transform: rotateY(180deg);
+}
+#radio-left:checked ~ .scene .cube {
+  transform: rotateY(90deg);
+}
+#radio-right:checked ~ .scene .cube {
+  transform: rotateY(-90deg);
+}
+#radio-top:checked ~ .scene .cube {
+  transform: rotateX(-90deg);
+}
+#radio-bottom:checked ~ .scene .cube {
+  transform: rotateX(90deg);
+}</code></pre>
+<p>Adding some <code>background-image</code> to all the faces we get the final result:</p>
+<p data-height="600" style="height: 600px; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1rem 0; padding: 1rem; overflow: auto;" data-theme-id="1" data-slug-hash="lLzyB" data-user="chinchang" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/chinchang/pen/lLzyB'>3D cube image gallery</a> by Kushagra Gour (<a href='http://codepen.io/chinchang'>@chinchang</a>) on <a href='http://codepen.io'>CodePen</a></p>
+<p>Hope you enjoyed this 3D ride and create some really amazing things using it!</p>
+
+          <div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow noopener noreferrer" data-shared="sharing-twitter-145808" class="share-twitter sd-button no-icon" href="https://css-tricks.com/creating-a-3d-cube-image-gallery/?share=twitter" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow noopener noreferrer" data-shared="sharing-facebook-145808" class="share-facebook sd-button no-icon" href="https://css-tricks.com/creating-a-3d-cube-image-gallery/?share=facebook" target="_blank" title="Click to share on Facebook"><span>Facebook</span></a></li><li class="share-end"></li></ul></div></div></div>
+        </div>
+
+                  <aside class="entry-unrelated sidebar">
+
+
+      <div id="all-ads"></div>
+
+</aside>
+
+      </div>
+
+    </div>
+
+  </article>
+
+</main>
+
+<div class="related-ads-comments-wrap">
+  <div class="related-ads-comments">
+    <div class="end-of-article-ads">
+
+      <div class="bsap-doubles side-by-side">
+
+      <div id="bsap_1250418" class="bsarocks bsap_3469a2a501a9e18091036aa0c89f9dcb"></div>
+
+    </div>
+
+</div>
+
+<section class="respond-area">
+
+
+    <h2 class="comments-title" id="comments">
+      Comments
+    </h2>
+
+    <ol id="featured-comments-list" class="commentlist featured-comments-list"></ol>
+
+    <ol class="commentlist" id="commentlist">
+
+    <li class="comment even thread-even depth-1" id="li-comment-505995">
+
+      <div class="comment-wrap" id="comment-505995">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/2e0f1ca693554584ddc74de8d3a4c11c?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Jon Wiedmann</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-505995"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-06T06:49:44-07:00">August 6, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Very nice,  similar to something I played around with a few months ago: <a href="http://jonmann20.github.io/playground/breakdancing-cube" rel="nofollow">http://jonmann20.github.io/playground/breakdancing-cube</a></p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  <ul class="children">
+
+    <li class="comment odd alt depth-2" id="li-comment-507428">
+
+      <div class="comment-wrap" id="comment-507428">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/66ef0c8da04a5053b9d87063302a8fd9?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Chetan</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-507428"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-07T09:31:27-07:00">August 7, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>please send me the code for this trick  thanks..!!<br />
+(<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1f7370777e7b7a7c777a6b7e712f2f265f77706b727e7673317c7072">[email&#160;protected]</a>)</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment even depth-2" id="li-comment-639427">
+
+      <div class="comment-wrap" id="comment-639427">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/c0eca85be1a374924ab06f54f5e45663?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Daren</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-639427"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-11-07T09:02:53-07:00">November 7, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Great cube!</p>
+<p>Question #1: I&#8217;ve been playing around with your code and can&#8217;t seem to be able to put all of the radio buttons in a DIV. After putting them in a div with an id=&#8221;options&#8221;, the cube stops working. How does the css need to change to make this work?</p>
+<p>Question #2: When taking a screen capture of your cube (using Windows &#8220;snipping tool&#8221;), I find that your cube is actually 288px by 288px!&#8230;??? But your code has it set to 250px by 250px. What&#8217;s up with that?</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-506074">
+
+      <div class="comment-wrap" id="comment-506074">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/820d0e4ee14e986a44d33782ca852f51?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">bob</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-506074"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-06T08:08:44-07:00">August 6, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Or check out <a href="http://desandro.github.io/3dtransforms/docs/cube.html" rel="nofollow">http://desandro.github.io/3dtransforms/docs/cube.html</a></p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-506076">
+
+      <div class="comment-wrap" id="comment-506076">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/ad2146bc4e78640e2ef602aabbeddc40?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Donnie</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-506076"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-06T08:08:54-07:00">August 6, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>I just did some 3D craziness by building a small New York City on one of my own sites last week.  <a href="http://www.donniedamato.info" rel="nofollow">Check it out here.</a></p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-506096">
+
+      <div class="comment-wrap" id="comment-506096">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/6285ff8f79ce11a5c9161011137258bc?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Scott</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-506096"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-06T08:43:03-07:00">August 6, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>This doesn&#8217;t work at all in Chrome. I just see a flat image that disappears randomly.</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  <ul class="children">
+
+    <li class="comment even depth-2" id="li-comment-506112">
+
+      <div class="comment-wrap" id="comment-506112">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/0b097fb45c74fdc35d41d7b8f3a5972d?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Andy</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-506112"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-06T08:58:36-07:00">August 6, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>I&#8217;m using Chrome (v 28.0.1500.95 on Mac) and it works fine for me.</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt depth-2" id="li-comment-506245">
+
+      <div class="comment-wrap" id="comment-506245">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/b6c5f1df8a981de7eed3bc6fb9b2df2e?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Kseso</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-506245"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-06T11:42:19-07:00">August 6, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Chrome v 28.0.1500.95 m (windows) hasn&#8217;t fixed its bug with &#8216;transform-style: preserve-3d;&#8217; or maybe we are doing something wrong  ¡¡¿¿??!!</p>
+<p><a href="http://codepen.io/Kseso/pen/vHCLq" title="3D cube pure css by Kseso" rel="nofollow">My old 3D cube</a> doesn’t work in Chrome, in FF is all right</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment even depth-2" id="li-comment-509132">
+
+      <div class="comment-wrap" id="comment-509132">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/68b3d12e7e70115d680fdefc70ab1631?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Roko</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-509132"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-08T19:34:36-07:00">August 8, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Try to use a new mixin rule to create -webkit-transition and other compatibles browsers</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-even depth-1" id="li-comment-506224">
+
+      <div class="comment-wrap" id="comment-506224">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/f69f8d25ea26f301a5e1f3d4829c0b27?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">dan</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-506224"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-06T11:12:59-07:00">August 6, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Cool trick and very smooth. I suppose today is a great day to learn about SCSS!</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-506244">
+
+      <div class="comment-wrap" id="comment-506244">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/68b6daf4b50533b86c5389ff3e26e2a1?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Jared Stephens</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-506244"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-06T11:41:01-07:00">August 6, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>So I am guessing this would not work in IE10 and below since they do not support the &#8220;preserve-3d&#8221; property. Anyone know the answer for certain?</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  <ul class="children">
+
+    <li class="comment odd alt depth-2" id="li-comment-506263">
+
+      <div class="comment-wrap" id="comment-506263">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/b87d5da2fa8f2e0ac7fbe1e3dd86e17e?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Brendan</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-506263"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-06T12:23:36-07:00">August 6, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <blockquote><p>
+  Partial support in IE10 refers to not supporting the transform-style: preserve-3d property. This prevents nesting 3D transformed elements.&gt;
+</p></blockquote>
+<p><a href="http://caniuse.com/#feat=transforms3d" rel="nofollow">http://caniuse.com/#feat=transforms3d</a></p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-506961">
+
+      <div class="comment-wrap" id="comment-506961">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/d1fca6c1b19a5cc6838bf09046ee0274?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Alex</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-506961"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-07T00:48:40-07:00">August 7, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Awesome. Thanks</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-507218">
+
+      <div class="comment-wrap" id="comment-507218">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/31ec9a709270a5e9c90cdcf76db363d7?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Jonathan Cardoso [JCM]</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-507218"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-07T06:09:17-07:00">August 7, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>I&#8217;ve done a logo using a similar cube some time ago: <a href="http://codepen.io/JCMais/pen/lByim" rel="nofollow">http://codepen.io/JCMais/pen/lByim</a></p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-507295">
+
+      <div class="comment-wrap" id="comment-507295">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/278ebb4473812819d7b0d892c99d14ee?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Ryan Boone</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-507295"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-07T07:07:46-07:00">August 7, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Great article. I think this could be the most straightforward way I&#8217;ve ever had this explained to me. My only criticism is that the left-face rotation graphics were confusing to me. They all look exactly the same. It could just be me. I&#8217;ve been known to be slow at times.</p>
+<p>Other than that, fantastic article! Thank you for helping me to understanding the black magic that is CSS 3D. My head is spinning with ideas.</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  <ul class="children">
+
+    <li class="comment odd alt depth-2" id="li-comment-507300">
+
+      <div class="comment-wrap" id="comment-507300">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/278ebb4473812819d7b0d892c99d14ee?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Ryan Boone</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-507300"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-07T07:10:43-07:00">August 7, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Ah, after hacking around in dev tools, I see that the picture for the left face translation is wrong. They should be tut4.png and tut5.png. Right now all three are tut3.png.</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment byuser comment-author-chriscoyier even depth-2" id="li-comment-507313">
+
+      <div class="comment-wrap" id="comment-507313">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Chris Coyier</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-507313"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-07T07:24:28-07:00">August 7, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>oooops fixed.</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-507324">
+
+      <div class="comment-wrap" id="comment-507324">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/b72c0c28fbb1b2133f038781df61bcda?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">blwoosky</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-507324"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-07T07:30:15-07:00">August 7, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>hey chris ,this article has a few mistakes,<br />
+when you set each face ,it&#8217;s all     .cube-face-left   in SCSS code，<br />
+I bevelieve you can understand what i want to say ,</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  <ul class="children">
+
+    <li class="comment even depth-2" id="li-comment-507337">
+
+      <div class="comment-wrap" id="comment-507337">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/b72c0c28fbb1b2133f038781df61bcda?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">blwoosky</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-507337"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-07T07:43:57-07:00">August 7, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>left , right, top ,bottom</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt depth-2" id="li-comment-507370">
+
+      <div class="comment-wrap" id="comment-507370">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/6be4e636e8aacd405bed5cd15124a875?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Kushagra Gour</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-507370"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-07T08:19:07-07:00">August 7, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Thanks for pointing out. My bad :| Let me know if you find any other bug.</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-508329">
+
+      <div class="comment-wrap" id="comment-508329">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/932e3a4e46835d38ef18f1ca720ac5d2?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Nicky</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-508329"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-08T02:58:28-07:00">August 8, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>I am just stunned you can do this all in CSS.<br />
+Amazing &#8211; well done.</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-508814">
+
+      <div class="comment-wrap" id="comment-508814">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/ad2146bc4e78640e2ef602aabbeddc40?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Donnie</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-508814"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-08T11:36:55-07:00">August 8, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>I might be going a bit overboard with <a href="http://iris.nyit.edu/~ddamato/polyhedron/" title="this dodecahedron" rel="nofollow">this dodecahedron</a> using CSS.</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-508816">
+
+      <div class="comment-wrap" id="comment-508816">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/278ebb4473812819d7b0d892c99d14ee?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Ryan Boone</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-508816"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-08T11:46:43-07:00">August 8, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Now, my question is this: How do you create a 3D object with rounded corners? I&#8217;ve seen a <a href="http://codepen.io/jlwebart/pen/JDHne" title="iPhone 4 full CSS 3D" rel="nofollow">3D iPhone created in CSS using pseudo-elements</a>, but I&#8217;m trying to figure out how only two planes can create the rounded look. Is it the gradient applied? It seems like the illusion would break at certain angles. I would imagine applying dynamic light would reveal it fairly easily. I can see how creating more complex objects is a bit of a mountain to scale.</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  <ul class="children">
+
+    <li class="comment odd alt depth-2" id="li-comment-508962">
+
+      <div class="comment-wrap" id="comment-508962">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/6be4e636e8aacd405bed5cd15124a875?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Kushagra Gour</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-508962"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-08T14:52:00-07:00">August 8, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>I don&#8217;t think rounded surfaces are possible yet. Even in the example you mentioned, the rounded surfaces are created using small planes aligned at corners of the strip which joins the 2 faces of the phone.</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-508898">
+
+      <div class="comment-wrap" id="comment-508898">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/627d197fb09fe8fde309eac97b05e418?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Arron Hunt</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-508898"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-08T13:49:31-07:00">August 8, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Is there any benefit to using top, left, right, top, bottom, front, and back classes instead of nth-child pseudo classes? Since you&#8217;re using a CSS preprocessor which gives you access to programatical functions like loops, seems like nth-children would be easier.</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  <ul class="children">
+
+    <li class="comment odd alt depth-2" id="li-comment-508969">
+
+      <div class="comment-wrap" id="comment-508969">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/6be4e636e8aacd405bed5cd15124a875?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Kushagra Gour</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-508969"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-08T15:00:09-07:00">August 8, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Depends on your use case. If you would like to target specific sides (say you want to put the best image on front face), you got to give those classes. Of course you could do that with <code>nth-child</code> too, but classes just add semantics.</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-509276">
+
+      <div class="comment-wrap" id="comment-509276">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/c104a17caf77a8c27edf046dd0e53315?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Yogesh Singh</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-509276"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-09T00:04:30-07:00">August 9, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Nice tutorial and now I am going to try it :)</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-513825">
+
+      <div class="comment-wrap" id="comment-513825">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/be36de8cdf2d5f676e34dde847c35cc3?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Varsha</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-513825"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-13T10:16:52-07:00">August 13, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>its amazing</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-514402">
+
+      <div class="comment-wrap" id="comment-514402">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/a0bc92bc41f491e8babec12ee5d8f038?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Neil</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-514402"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-14T01:08:32-07:00">August 14, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>That&#8217;s sweet but complicated!</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-517599">
+
+      <div class="comment-wrap" id="comment-517599">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/b6b8cab3e206d739432c52b3e73de373?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Mathew Porter</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-517599"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-17T04:17:17-07:00">August 17, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>As ever an awesome post / tutorial guys.</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-525811">
+
+      <div class="comment-wrap" id="comment-525811">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/fc062479f7079c99f2f873db10a515d8?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Joshua Dixon</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-525811"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-26T11:32:22-07:00">August 26, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Hey, great tutorial. I really learned a lot. However, whenever I attempt this, the front face does not appear correctly. It looks like it is center aligned inside of the cube, instead of on the outside of the cube like the rest of the faces. Any idea what I might do about that? I&#8217;ve tried manipulating the translate3d values, but no luck.</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  <ul class="children">
+
+    <li class="comment odd alt depth-2" id="li-comment-525816">
+
+      <div class="comment-wrap" id="comment-525816">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/6be4e636e8aacd405bed5cd15124a875?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Kushagra Gour</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-525816"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-26T11:40:05-07:00">August 26, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Thanks Joshua! May be you can share something on Codepen so I can see whats going wrong?</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment even thread-odd thread-alt depth-1" id="li-comment-525820">
+
+      <div class="comment-wrap" id="comment-525820">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/fc062479f7079c99f2f873db10a515d8?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Joshua Dixon</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-525820"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-26T11:44:30-07:00">August 26, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Sure, here it is. And thank you very much for responding so quickly!<br />
+<a href="http://cdpn.io/cCHdk" rel="nofollow">http://cdpn.io/cCHdk</a></p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  <ul class="children">
+
+    <li class="comment odd alt depth-2" id="li-comment-525827">
+
+      <div class="comment-wrap" id="comment-525827">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/6be4e636e8aacd405bed5cd15124a875?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Kushagra Gour</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-525827"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-26T11:59:58-07:00">August 26, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Its the following comment what is causing issue:<br />
+    // faces</p>
+<p>Its valid in SASS but not in CSS (which you are using in your pen). If you want to use CSS, change it to:<br />
+/* faces */</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment even thread-even depth-1" id="li-comment-530596">
+
+      <div class="comment-wrap" id="comment-530596">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/ef0de8bb448206fa8636cae44cd414e7?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">echo</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-530596"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-08-30T18:47:06-07:00">August 30, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>My favorite <a href="http://www.webkit.org/blog-files/3d-transforms/morphing-cubes.html" title="example" rel="nofollow">example</a>, I&#8217;ve saved this link as I could no longer find where it&#8217;s linked from.</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-586974">
+
+      <div class="comment-wrap" id="comment-586974">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/6873cff17a49c6da55dde0009c32fddd?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Phil</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-586974"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-10-12T07:33:10-07:00">October 12, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>Why when changing from showing the right face to the back face, does the cube spin all the way around, rather than spinning one face round?</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  <ul class="children">
+
+    <li class="comment even depth-2" id="li-comment-588893">
+
+      <div class="comment-wrap" id="comment-588893">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/6be4e636e8aacd405bed5cd15124a875?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Kushagra Gour</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-588893"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2013-10-13T12:29:45-07:00">October 13, 2013</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>That depends on the angle you are setting to reach the back face. Like if you are at an angle of 90deg, to go one face ahead, you could set either 180deg (+90) or -180deg (-270)&#8230;latter will spin the cube all the way round.</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+    <li class="comment odd alt thread-even depth-1" id="li-comment-1487781">
+
+      <div class="comment-wrap" id="comment-1487781">
+
+        <div class="author-avatar">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" class="lazyload-gravatar" alt="User Avatar" data-src="https://secure.gravatar.com/avatar/8f7c41f620330e7c7db43741138ef179?s=160&d=retro&r=pg">
+          <svg class="half-circle" width="80px" height="80px">
+            <use xlink:href="#half-circle"></use>
+          </svg>
+        </div>
+
+        <div class="comment-body">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">gorgy</div> <div class="comment-time"><a href="https://css-tricks.com/creating-a-3d-cube-image-gallery/#comment-1487781"><span class="screen-reader">Permalink to comment</span>#</a> <time datetime="2014-03-31T05:47:49-07:00">March 31, 2014</time></div>
+
+          </div>
+          <div class="comment-content">
+
+            <p>its a pretty nice design i love it, but i have been trying all i could to learn how it was designed with the come and probably if it could be done on my system too,but i can&#8217;t get it yet, so please how do i go about it?</p>
+
+          </div>
+        </div>
+        <div class="comment-actions">
+          <div class="reply">
+                      </div>
+        </div>
+
+      </div>
+
+
+  </li><!-- #comment-## -->
+    </ol>
+
+
+
+  <div class="comments-closed bold-underline-links">
+    This comment thread is closed. If you have important information to share, please <a href="/contact/">contact us</a>.
+  </div>
+
+
+</section>          <div class="related-posts">
+  <div id='jp-relatedposts' class='jp-relatedposts' >
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+</div></div>      </div>
+</div>
+
+  </div>
+  <footer class="site-footer footer-newsletter">
+
+    <div class="footer-newsletter-inside">
+      <hr class="thick">
+
+      <h2>How do you stay up to date in this fast⁠-⁠moving&nbsp;industry?</h2>
+
+      <p>A good start is to sign up for our weekly hand-written newsletter. We bring you the best articles and ideas from around the web, and what we think about them.</p>
+
+      <div id="footer-form-wrap">
+
+  <form action="https://chriscoyier.us2.list-manage.com/subscribe/post?u=155f5a9ccc4e24c318130cace&amp;id=197f127a68" method="post" id="mc-embedded-subscribe-form">
+
+    <div class="subwrap">
+      <div class="inner-sub">
+        <div class="submarine">
+          <div class="porthole"></div>
+          <div class="porthole"></div>
+          <div class="fin"></div>
+          <div class="fin lower"></div>
+          <div class="periscope"></div>
+          <div class="prop"></div>
+          <label for="mce-EMAIL" class="screen-reader">Email Address</label>
+          <input type="email" name="EMAIL" class="required email mailchimp-email-input" id="mce-EMAIL" placeholder="lovetricks@internet.cool" required="">
+          <div class="inner"></div>
+        </div>
+
+        <div class="btnwrap">
+          <b>
+            <span>Subscribe</span>
+          </b>
+          <input type="submit" value="Subscribe" name="Subscribe" id="mc-embedded-subscribe" class="button subscribe-button">
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>
+      <div class="social-links">
+        <a href="https://www.facebook.com/CSSTricks/" class="social-link-facebook">
+          <strong>Facebook</strong>
+          <span>@CSSTricks</span>
+        </a>
+
+        <a href="https://twitter.com/css" class="social-link-twitter">
+          <strong>Twitter</strong>
+          <span>@CSS</span>
+        </a>
+
+        <a href="https://www.youtube.com/user/realcsstricks" class="social-link-youtube">
+          <strong>YouTube</strong>
+          <span>@realcsstricks</span>
+        </a>
+
+        <a href="https://spectrum.chat/css-tricks" class="social-link-spectrum">
+          <strong>Spectrum</strong>
+          <span>@css-tricks</span>
+        </a>
+
+        <a href="https://css-tricks.com/feed/" class="social-link-rss">
+          <strong>RSS</strong>
+          <span>Feed</span>
+        </a>
+      </div>
+    </div>
+
+  </footer>
+
+  <div class="footer-colophon-wrapper">
+    <footer class="site-footer footer-colophon">
+
+      <div>
+        <h4>👋 </h4>
+        <p>CSS-Tricks<span>*</span> is created, written by, and maintained by <a href="https://chriscoyier.net">Chris Coyier</a> and <a href="/about/">a team</a> of swell people. The tech stack for this site is fairly <a href="/simple-boring/">boring</a>. That's a good thing! I've used <a href="https://wordpress.org/">WordPress</a> since day one all the way up to <a href="/design-v17/">v17</a>, a decision I'm <a href="/video-screencasts/154-poster-child-wordpress-site/">very happy with</a>. I also leverage <a href="/jetpack/">Jetpack</a> for extra functionality and <a href="/local-by-flywheel/">Local</a> for local development.</p>
+
+        <p class="mega-big-time-warning"><small><span>*</span>May or may not contain any actual "CSS" or "Tricks".</small></p>
+      </div>
+
+      <nav>
+        <h4>Other Nav</h4>
+        <a href="/contact/">Contact</a>
+        <a href="/about/">About</a>
+        <a href="/forums/">Forums</a>
+        <a href="/advertising/">Advertise</a>
+        <a href="/license/">License</a>
+        <a href="/subscription-options/">Subscribe</a>
+        <a href="/guest-posting/">Guest Posting</a>
+        <a href="/authors/">All Authors</a>
+      </nav>
+
+    </footer>
+  </div>
+
+  <footer class="site-footer footer-partners">
+
+    <div class="footer-partner footer-partner-codepen">
+
+      <div>
+        <a href="https://codepen.io/">
+          <svg class="codepen-logo" viewBox="0 0 138 26" width="100%" height="100%"><path d="M15 8a7 7 0 1 0 0 10m7-8.7L33 2l11 7.3v7.4L33 24l-11-7.3zm0 0l11 7.4 11-7.4m0 7.4L33 9.3l-11 7.4M33 2v7.3m0 7.4V24M52 6h5a7 7 0 0 1 0 14h-5zm28 0h-9v14h9m-9-7h6m11 1h6a4 4 0 0 0 0-8h-6v14m26-14h-9v14h9m-9-7h6m11 7V6l11 14V6"></path></svg>          <span class="screen-reader-text">CodePen</span>
+        </a>
+        <p class="bold-underline-links">
+          <a href="https://codepen.io/">CodePen</a> is a place to experiment, debug, and show off your HTML, CSS, and JavaScript creations.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-partner footer-partner-flywheel">
+      <div>
+        <a href="https://share.getf.ly/k96n2f">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 589.02 164.24"><defs><style>.cls-1{fill:#50c6db;}</style></defs><title>Flywheel logo</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M82.7,18.32a63.8,63.8,0,1,0,63.8,63.79A63.79,63.79,0,0,0,82.7,18.32Zm-17.1,9a57.29,57.29,0,0,1,34.88.22,19.81,19.81,0,0,0-7.69,10.18c-2.41,7.3.13,14,2.38,19.84l.25.64c1.31,3.47,1.94,7.92-1.44,11.05a17,17,0,0,0-4.66-3c.53-7.19-3.68-13.54-11.72-17.18L77,48.83C71.67,46.44,67.1,44.38,64.82,40c-2.48-4.75-1.07-9.35.55-12.37ZM91.73,82a9,9,0,1,1-9-9A9,9,0,0,1,91.73,82Zm-36-50.5a19.63,19.63,0,0,0,2,12.24c3.56,6.82,10.13,9.79,15.93,12.41l.64.29c3.4,1.54,7,4.22,7.07,8.63A16.93,16.93,0,0,0,76,66.36c-4.78-5.52-12.32-7.15-20.61-4.18l-.66.24c-5.45,2-10.15,3.65-14.95,2.11a13.3,13.3,0,0,1-8.3-8.27A57.8,57.8,0,0,1,55.71,31.47ZM27.84,99a57.43,57.43,0,0,1-.11-33.42,20.39,20.39,0,0,0,9.6,6.55c7.39,2.38,14.15,0,20.11-2.19l.65-.24c3.6-1.29,8.23-1.88,11.5,1.48A16.78,16.78,0,0,0,67,75.59c-7.47-.75-14.08,3.34-17.82,11.34l-.29.63c-2.39,5.13-4.46,9.56-8.9,11.76a13.77,13.77,0,0,1-11.9-.17ZM55.2,132.47a57.75,57.75,0,0,1-23.49-24,22.72,22.72,0,0,0,2.72.18,20.31,20.31,0,0,0,9.08-2.11c7-3.44,10-9.88,12.61-15.55l.29-.62c1.61-3.45,4.5-7.11,9.4-6.81A16.81,16.81,0,0,0,67,88.42c-5.81,4.67-7.51,12.19-4.34,20.5l.25.65c2,5.31,3.77,9.89,2.25,14.48-1.67,5.07-6,7.34-9.4,8.34ZM100,136.83a57.27,57.27,0,0,1-34.94-.1,19.79,19.79,0,0,0,7.69-10.17c2.41-7.3-.13-14-2.38-19.84l-.24-.64c-1.34-3.52-2-8,1.57-11.18a16.83,16.83,0,0,0,4.55,2.79C75.59,105,79.8,111.48,88,115.17l.65.29c5.28,2.39,9.85,4.45,12.13,8.82,2.48,4.75,1.07,9.35-.55,12.37C100.18,136.65,100.12,136.8,100,136.83Zm9.85-4.16a19.61,19.61,0,0,0-2-12.09c-3.56-6.82-10.13-9.79-15.93-12.41l-.64-.29c-3.49-1.58-7.21-4.36-7.06-9a16.86,16.86,0,0,0,5.12-1.25c4.77,5.74,12.43,7.48,20.85,4.46l.67-.24c5.44-2,10.14-3.66,14.94-2.11a13.24,13.24,0,0,1,8.22,8.06A57.77,57.77,0,0,1,109.86,132.67ZM140.1,82.11a57.12,57.12,0,0,1-2.41,16.43,20.34,20.34,0,0,0-9.47-6.39c-7.39-2.38-14.14,0-20.1,2.19l-.66.24c-3.67,1.31-8.43,1.91-11.71-1.69a17,17,0,0,0,2.6-4.2,18.2,18.2,0,0,0,1.94.12c6.75,0,12.65-4.07,16.1-11.45l.29-.63c2.4-5.13,4.46-9.56,8.91-11.76a13.71,13.71,0,0,1,11.95.2A57.18,57.18,0,0,1,140.1,82.11ZM122,57.8c-7,3.44-10,9.87-12.61,15.55l-.29.62c-1.62,3.46-4.53,7.16-9.47,6.81a16.85,16.85,0,0,0-1.1-4.93c5.8-4.67,7.48-12.18,4.32-20.48l-.25-.66c-2-5.3-3.77-9.88-2.25-14.48,1.67-5.06,6-7.33,9.4-8.34l.44-.12a57.79,57.79,0,0,1,23.48,24.08A20.55,20.55,0,0,0,122,57.8Z"/><path class="cls-1" d="M82.7.86A81.26,81.26,0,1,0,164,82.11,81.26,81.26,0,0,0,82.7.86Zm0,152.31a71.06,71.06,0,1,1,71.05-71.06A71.14,71.14,0,0,1,82.7,153.17Z"/><path class="cls-1" d="M150.27,15.1C142.66,7.42,132.85,1.78,124,0a1.1,1.1,0,0,0-.67,2.08,82.79,82.79,0,0,1,39.69,40.17,1.11,1.11,0,0,0,1,.65,1.26,1.26,0,0,0,.33-.05,1.11,1.11,0,0,0,.74-1.27C163.26,32.3,158,22.89,150.27,15.1Z"/><path class="cls-1" d="M41.8,162.14A82.79,82.79,0,0,1,2.11,122a1.1,1.1,0,0,0-2.09.67c1.87,9.3,7.15,18.71,14.87,26.5s17.42,13.32,26.23,15.08l.22,0a1.1,1.1,0,0,0,.46-2.1Z"/><path class="cls-1" d="M229.51,49.8h-30a1.76,1.76,0,0,0-1.75,1.75V113.2a1.75,1.75,0,0,0,1.75,1.75h6a1.75,1.75,0,0,0,1.75-1.75V87h19.4a1.75,1.75,0,0,0,1.75-1.75v-6a1.75,1.75,0,0,0-1.75-1.75H207.3V59.3h22.21a1.75,1.75,0,0,0,1.75-1.75v-6A1.75,1.75,0,0,0,229.51,49.8Z"/><path class="cls-1" d="M275.74,105.45H253.53V51.55a1.75,1.75,0,0,0-1.75-1.75h-6A1.76,1.76,0,0,0,244,51.55V113.2a1.75,1.75,0,0,0,1.75,1.75h30a1.75,1.75,0,0,0,1.75-1.75v-6A1.75,1.75,0,0,0,275.74,105.45Z"/><path class="cls-1" d="M317.67,49.57H311a1.74,1.74,0,0,0-1.54.92L295.92,75.56,282.07,50.47a1.75,1.75,0,0,0-1.53-.9h-6.68a1.75,1.75,0,0,0-1.54,2.59L291,86.58V113.2a1.75,1.75,0,0,0,1.75,1.75h6a1.75,1.75,0,0,0,1.75-1.75v-26l18.68-35.06a1.75,1.75,0,0,0-1.55-2.57Z"/><path class="cls-1" d="M587.27,105.45H565.06V51.55a1.75,1.75,0,0,0-1.75-1.75h-6a1.76,1.76,0,0,0-1.75,1.75V113.2a1.75,1.75,0,0,0,1.75,1.75h30A1.75,1.75,0,0,0,589,113.2v-6A1.75,1.75,0,0,0,587.27,105.45Z"/><path class="cls-1" d="M443.73,49.8h-6A1.76,1.76,0,0,0,436,51.55V77.49H414.5V51.55a1.75,1.75,0,0,0-1.75-1.75h-6A1.75,1.75,0,0,0,405,51.55V113.2a1.75,1.75,0,0,0,1.75,1.75h6a1.75,1.75,0,0,0,1.75-1.75V87H436V113.2a1.75,1.75,0,0,0,1.75,1.75h6a1.75,1.75,0,0,0,1.75-1.75V51.55A1.75,1.75,0,0,0,443.73,49.8Z"/><path class="cls-1" d="M492.1,49.8H461.71A1.76,1.76,0,0,0,460,51.55V113.2a1.75,1.75,0,0,0,1.75,1.75H492.1a1.75,1.75,0,0,0,1.75-1.75v-6a1.75,1.75,0,0,0-1.75-1.75H469.46V87h19.7a1.75,1.75,0,0,0,1.75-1.75v-6a1.75,1.75,0,0,0-1.75-1.75h-19.7V59.3H492.1a1.75,1.75,0,0,0,1.75-1.75v-6A1.75,1.75,0,0,0,492.1,49.8Z"/><path class="cls-1" d="M540,49.8H509.62a1.75,1.75,0,0,0-1.75,1.75V113.2a1.75,1.75,0,0,0,1.75,1.75H540a1.75,1.75,0,0,0,1.75-1.75v-6a1.75,1.75,0,0,0-1.75-1.75H517.37V87h19.76a1.75,1.75,0,0,0,1.75-1.75v-6a1.75,1.75,0,0,0-1.75-1.75H517.37V59.3H540a1.75,1.75,0,0,0,1.75-1.75v-6A1.75,1.75,0,0,0,540,49.8Z"/><path class="cls-1" d="M392.73,49.78h-6.57a1.25,1.25,0,0,0-1.22,1L374.81,94.4,364.5,50.75a1.25,1.25,0,0,0-1.22-1h-6.6a1.26,1.26,0,0,0-1.22,1l-10.32,43.6L335,50.75a1.25,1.25,0,0,0-1.22-1h-6.57a1.26,1.26,0,0,0-1,.48,1.25,1.25,0,0,0-.24,1.06L340.58,114a1.27,1.27,0,0,0,.26.58,1.25,1.25,0,0,0,1,.47h6.57a1.25,1.25,0,0,0,1.22-1L360,70.31l10.34,43.8a1.26,1.26,0,0,0,1.22,1h6.62a1.24,1.24,0,0,0,1.21-1L394,51.32a1.28,1.28,0,0,0-.24-1.06A1.26,1.26,0,0,0,392.73,49.78Z"/></g></g></svg>          <span class="screen-reader-text">Flywheel</span>
+        </a>
+        <p class="bold-underline-links">
+          CSS-Tricks is hosted by <a href="https://share.getf.ly/k96n2f">Flywheel</a>, the best WordPress hosting in the business, with a local development tool to match.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-partner footer-partner-shoptalk">
+
+      <div>
+        <a href="https://shoptalkshow.com"><img class="shoptalk-img" src="https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1560364200/shoptalk_logo_e2defo.png" alt="ShopTalk Show"></a>
+        <p class="bold-underline-links">
+          <a href="https://shoptalkshow.com">ShopTalk</a> is a podcast all about front-end web design and development.
+        </p>
+      </div>
+
+    </div>
+
+  </footer>
+
+  <footer class="site-footer footer-subsites">
+    <div class="footer-subsite footer-subsite-conferences bold-underline-links">
+      <span class="presents"><strong>CSS-Tricks</strong> Presents</span>
+      <a href="https://conferences.css-tricks.com/">📅 Upcoming Front-End Conferences</a>
+    </div>
+    <div class="footer-subsite footer-subsite-serverless bold-underline-links">
+    <span class="presents"><strong>CSS-Tricks</strong> Presents</span>
+      <a href="https://serverless.css-tricks.com/">The Power of Serverless for Front-End Developers</a>
+    </div>
+  </footer>
+
+  <svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<clipPath id="a"><path fill="#fff" d="M0 0h40v40H0z"/></clipPath>
+<clipPath id="a"><path fill="#fff" d="M0 0h40v40H0z"/></clipPath>
+<clipPath id="a"><path fill="#fff" d="M0 0h40v40H0z"/></clipPath>
+<clipPath id="a"><path fill="#fff" d="M0 0h40v40H0z"/></clipPath>
+<clipPath id="a"><path fill="#fff" d="M0 0h40v40H0z"/></clipPath>
+</defs>
+<symbol id="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"/></symbol>
+<symbol id="icon-burger" viewBox="0 0 24 24"><rect y="2" width="24" height="2" rx="1"/><rect y="20" width="24" height="2" rx="1"/><rect y="8" width="24" height="2" rx="1"/><rect y="14" width="24" height="2" rx="1"/></symbol>
+<symbol id="icon-close" viewBox="0 0 95.08 95.09"><path d="M58.31 47.47l34.58-34.58a7.63 7.63 0 0 0 0-10.69 7.63 7.63 0 0 0-10.69 0L47.62 36.78 13 2.19a7.63 7.63 0 0 0-10.69 0 7.63 7.63 0 0 0 0 10.69l34.6 34.6L2.33 82.07a7.29 7.29 0 0 0 0 10.69 7.63 7.63 0 0 0 10.69 0l34.6-34.6 34.6 34.6a7.27 7.27 0 0 0 10.68 0 7.63 7.63 0 0 0 0-10.69z"/></symbol>
+<symbol id="icon-globe" viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+<symbol id="icon-itunes" viewBox="0 0 171.75 171.75"><path d="M85.88 0a85.88 85.88 0 1 0 85.87 85.88A85.88 85.88 0 0 0 85.88 0zm38.52 24.27a3.64 3.64 0 0 1 3.67 2.81c.18.62.22 12 .18 45.45l-.07 44.61-.46 1.67a15.89 15.89 0 0 1-11 11.32c-3.88 1.16-9.57 1.6-12.36.94a12.2 12.2 0 0 1-6.26-3.61 12.82 12.82 0 0 1-4.14-9.6 12.4 12.4 0 0 1 1.37-5.81 12.67 12.67 0 0 1 6.53-6.44c2.64-1.32 5-2 11.88-3.44 4.52-1 5.62-1.35 6.5-2.4 1.21-1.44 1.19-.91 1.13-23.74-.06-19.83-.08-20.92-.44-21.47a2.86 2.86 0 0 0-2.83-1.07c-1.25.18-45.76 9.18-46.87 9.48a3.37 3.37 0 0 0-2.41 2.65c-.17.79-.24 9.55-.24 31.1 0 33.1 0 32.35-1.3 35.86a19.24 19.24 0 0 1-1.5 3.08 18.11 18.11 0 0 1-5 4.85c-4.06 2.4-12 3.64-16.25 2.53a13.17 13.17 0 0 1-9.35-8.56 16.44 16.44 0 0 1-.38-7.75 13.11 13.11 0 0 1 3.41-6.32c2.91-2.92 6.36-4.29 15.63-6.17 2-.41 4.07-.89 4.59-1.06a5.31 5.31 0 0 0 2.84-2.69c.35-.79.38-2.71.48-35.78l.1-34.95.49-1a5.88 5.88 0 0 1 3-2.73c.79-.3 47-9.72 54.86-11.18a37.21 37.21 0 0 1 4.2-.58z"/></symbol>
+<symbol id="icon-link" viewBox="0 0 100 58.84"><title>icon-link</title><path d="M78.47 48H49.21a10.66 10.66 0 0 1-9-4.91h10.58A21.57 21.57 0 0 0 71.7 26.64h6.76a10.67 10.67 0 0 1 0 21.33zm-67.6-26.47a10.67 10.67 0 0 1 10.67-10.66H50.8A10.59 10.59 0 0 1 58.34 14a10.94 10.94 0 0 1 1.43 1.79H49.21a21.57 21.57 0 0 0-20.92 16.4h-6.76a10.67 10.67 0 0 1-10.66-10.66zm39.92 10.66H39.86a10.68 10.68 0 0 1 9.35-5.54h10.93a10.67 10.67 0 0 1-9.35 5.54zM100 37.31a21.53 21.53 0 0 0-21.53-21.53h-6.92A21.53 21.53 0 0 0 50.8 0H21.54a21.53 21.53 0 0 0 0 43.06h6.83v-.31A21.41 21.41 0 0 0 34 52.53a21.4 21.4 0 0 0 15.2 6.31h29.26A21.56 21.56 0 0 0 100 37.31z"/></symbol>
+<symbol id="icon-logo-star" viewBox="0 0 362.62 388.52"><title>icon-logo-star</title><path d="M156.58 239l-88.3 64.75c-10.59 7.06-18.84 11.77-29.43 11.77-21.19 0-38.85-18.84-38.85-40 0-17.69 14.13-30.64 27.08-36.52l103.6-44.74-103.6-45.92C13 142.46 0 129.51 0 111.85 0 90.66 18.84 73 40 73c10.6 0 17.66 3.53 28.25 11.77l88.3 64.75-11.74-104.78C141.28 20 157.76 0 181.31 0s40 18.84 36.5 43.56L206 149.52l88.3-64.75C304.93 76.53 313.17 73 323.77 73a39.2 39.2 0 0 1 38.85 38.85c0 18.84-12.95 30.61-27.08 36.5l-103.61 45.91L335.54 239c14.13 5.88 27.08 18.83 27.08 37.67 0 21.19-18.84 38.85-40 38.85-9.42 0-17.66-4.71-28.26-11.77L206 239l11.77 104.78c3.53 24.72-12.95 44.74-36.5 44.74s-40-18.84-36.5-43.56z"/></symbol>
+<symbol id="icon-nav-almanac" viewBox="0 0 36 40"><path d="M31 39H9V1h22c2.2 0 4 1.8 4 4v30c0 2.2-1.8 4-4 4zM9 1H1v38h8V1zM2 10h7M2 14h7"/><path d="M28 16l-4-4-4 4V1h8v15z"/></symbol>
+<symbol id="icon-nav-articles" viewBox="0 0 40 40"><path d="M24.9 6H9.1C7.9 6 7 6.9 7 8.1V16c0 1.2.9 2.1 2.1 2.1h15.8c1.2 0 2.1-.9 2.1-2.1V8.1c0-1.2-.9-2.1-2.1-2.1z"/><path d="M33.2 4H37c1.1 0 2 .9 2 2v29.2c0 2.1-1.7 3.8-3.8 3.8H4.8C2.7 39 1 37.3 1 35.2V4.8C1 2.7 2.7 1 4.8 1H29c2.2 0 4 1.8 4 4v28c0 1.7 1.3 3 3 3s3-1.3 3-3V9M7 23h20M7 28h20M7 33h20"/></symbol>
+<symbol id="icon-nav-guides" viewBox="0 0 40 40"><g clip-path="url(#a)"><path d="M6.2 37.4L14 35V1L3.8 4.1C2.1 4.7 1 6.2 1 7.9v25.7c0 2.7 2.6 4.6 5.2 3.8zM26 39l10.2-3.1c1.7-.5 2.8-2.1 2.8-3.8V5c0-2.7-2.6-4.6-5.1-3.8L26 3.6V39zM14 1l12 3M14 35l12 4"/></g></symbol>
+<symbol id="icon-nav-jobs" viewBox="0 0 40 40"><g clip-path="url(#a)"><path d="M39 23l-19 4-19-4V12c0-2.2 1.8-4 4-4h30c2.2 0 4 1.8 4 4v11z"/><path d="M38 24v11c0 2.2-1.8 4-4 4H6c-2.2 0-4-1.8-4-4V24M32 8H7V5c0-2.2 1.8-4 4-4h17c2.2 0 4 1.8 4 4v3z"/><path d="M15 27c0 2.75 2.25 5 5 5s5-2.25 5-5"/></g></symbol>
+<symbol id="icon-nav-newsletter" viewBox="0 0 40 40"><g clip-path="url(#a)"><path d="M35 39H5c-2.2 0-4-1.8-4-4V19l19 9 19-9v16c0 2.2-1.8 4-4 4zM2 38l12-13M38 38L26 25M33.2 15l5.8 4M1 19l5.8-4"/><path d="M7 22V5c0-2.2 1.8-4 4-4h18c2.2 0 4 1.8 4 4v17"/><path d="M26 13c0 3.3-2.7 6-6 6s-6-2.7-6-6"/></g></symbol>
+<symbol id="icon-nav-snippets" viewBox="0 0 40 40"><g clip-path="url(#a)"><path d="M17.2 37.8l-15-15c-1.6-1.6-1.6-4.1 0-5.7l15-15c1.6-1.6 4.1-1.6 5.7 0l15 15c1.6 1.6 1.6 4.1 0 5.7l-15 15c-1.6 1.6-4.2 1.6-5.7 0z"/><path d="M14 16l-4 4 4 4M26 24l4-4-4-4M21 16l-2 8"/></g></symbol>
+<symbol id="icon-nav-videos" viewBox="0 0 40 40"><g clip-path="url(#a)"><path d="M20 39c10.493 0 19-8.507 19-19S30.493 1 20 1 1 9.507 1 20s8.507 19 19 19z"/><path d="M20 33c7.18 0 13-5.82 13-13S27.18 7 20 7 7 12.82 7 20s5.82 13 13 13z"/><path d="M17.1 17v6.6c0 .8.8 1.2 1.5.9l6-3.3c.7-.4.7-1.4 0-1.7l-6-3.3c-.7-.4-1.5 0-1.5.8z"/></g></symbol>
+<symbol id="icon-pin" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.727 2A4.727 4.727 0 0 0 4 6.727c0 1.826 1.198 3.65 2.59 5.12a18.357 18.357 0 0 0 2.137 1.917 18.36 18.36 0 0 0 2.138-1.918c1.392-1.469 2.59-3.293 2.59-5.119A4.727 4.727 0 0 0 8.726 2zm0 13l-.555.832-.002-.002-.005-.003-.016-.01a6.814 6.814 0 0 1-.253-.18 20.364 20.364 0 0 1-2.758-2.416C3.666 11.669 2 9.357 2 6.728a6.727 6.727 0 1 1 13.454 0c0 2.63-1.665 4.941-3.137 6.495a20.366 20.366 0 0 1-2.956 2.556 6.845 6.845 0 0 1-.055.038l-.016.01-.005.004-.002.001s-.001.001-.556-.831zm0 0l.555.832a1 1 0 0 1-1.11 0L8.727 15z"/><path d="M8.727 8.637a1.91 1.91 0 1 0 0-3.819 1.91 1.91 0 0 0 0 3.819z"/></symbol>
+<symbol id="icon-play" viewBox="0 0 32 32"><path clip-rule="evenodd" d="M27.25 16c0 6.213-5.037 11.25-11.25 11.25S4.75 22.213 4.75 16 9.787 4.75 16 4.75 27.25 9.787 27.25 16zM16 31c8.284 0 15-6.716 15-15 0-8.284-6.716-15-15-15C7.716 1 1 7.716 1 16c0 8.284 6.716 15 15 15zm-1.657-19.744c-1.002-.668-2.343.05-2.343 1.253v7.63c0 1.204 1.341 1.922 2.343 1.254l5.722-3.815a1.507 1.507 0 0 0 0-2.508l-5.722-3.814z"/></symbol>
+<symbol id="icon-search" viewBox="0 0 100 100"><title>icon-search</title><path d="M80.65 66.78a33.55 33.55 0 0 1-47.44-47.44 33.55 33.55 0 1 1 47.44 47.44zm6.73-54.16a43.06 43.06 0 0 0-65.32 55.71L2 88.39A6.8 6.8 0 0 0 11.61 98l20.06-20.06a43.06 43.06 0 0 0 55.71-65.32z"/></symbol>
+<symbol id="icon-star" viewBox="0 0 100 95.52"><title>icon-star</title><g data-name="Layer 2"><path d="M64.19 28.77a5.17 5.17 0 0 0 3.9 2.83s29.27-3 31.74 4.61-23 22.39-23 22.39a5.17 5.17 0 0 0-1.49 4.58s11.91 26.9 5.42 31.61S52.4 79.87 52.4 79.87a5.21 5.21 0 0 0-2.41-.6 5.14 5.14 0 0 0-2.41.6S25.68 99.5 19.2 94.79s5.42-31.61 5.42-31.61a5.18 5.18 0 0 0-1.49-4.58S-2.31 43.83.17 36.21s31.74-4.61 31.74-4.61a5.19 5.19 0 0 0 3.9-2.83S42 0 50 0s14.19 28.77 14.19 28.77z" data-name="Layer 1"/></g></symbol>
+<symbol id="logo-facebook" viewBox="0 0 16 16"><path d="M5.667 16h3.2V7.933h2.266L11.4 5.2H8.867V3.667C8.867 3 9 2.8 9.6 2.8h1.733V0h-2.2c-2.4 0-3.466 1.067-3.466 3.067V5.2H4v2.733h1.667V16z"/></symbol>
+<symbol id="logo-rss" viewBox="0 0 16 16"><path d="M0 0v3.2c3.4 0 6.6 1.333 9 3.733 2.4 2.4 3.733 5.6 3.733 9.067H16C16 7.2 8.8 0 0 0zM2.2 11.666c-1.2 0-2.2 1-2.2 2.2C0 15.066 1 16 2.2 16c1.2 0 2.2-1 2.2-2.2-.067-1.134-1.067-2.134-2.2-2.134z"/><path d="M0 5.467v3.2C4.067 8.733 7.333 12 7.333 16h3.2C10.533 10.2 5.8 5.533 0 5.467z"/></symbol>
+<symbol id="logo-spectrum" viewBox="0 0 32 32"><path d="M6 14.5A1.5 1.5 0 0 0 7.5 16H9a7 7 0 0 1 7 7v1.5a1.5 1.5 0 0 0 1.5 1.5h7a1.5 1.5 0 0 0 1.5-1.5V23c0-9.389-7.611-17-17-17H7.5A1.5 1.5 0 0 0 6 7.5v7z"/></symbol>
+<symbol id="logo-twitter" viewBox="0 0 16 16"><path d="M0 12.867a9.332 9.332 0 0 0 5 1.466c6.067 0 9.533-5.133 9.333-9.733.667-.466 1.2-1.066 1.667-1.666-.6.266-1.2.466-1.867.533a3.55 3.55 0 0 0 1.467-1.8c-.667.4-1.333.666-2.067.8-.666-.734-1.533-1.134-2.466-1.134-2.134 0-3.667 2-3.2 4-2.734-.133-5.134-1.4-6.734-3.4a3.299 3.299 0 0 0 1 4.4c-.533-.066-1.066-.2-1.466-.4C.6 7.468 1.733 8.867 3.267 9.2c-.467.134-1 .134-1.467.067a3.16 3.16 0 0 0 3.067 2.267A6.726 6.726 0 0 1 0 12.867z"/></symbol>
+<symbol id="logo-youtube" viewBox="0 0 16 16"><path d="M15.667 4.4c-.2-.667-.734-1.267-1.4-1.4C13 2.667 8 2.667 8 2.667s-5 0-6.267.333c-.666.2-1.2.733-1.4 1.4C0 5.666 0 8.333 0 8.333s0 2.6.333 3.867c.2.667.734 1.267 1.4 1.4C3 13.933 8 13.933 8 13.933s5 0 6.267-.333c.666-.2 1.2-.733 1.4-1.4C16 10.933 16 8.333 16 8.333s0-2.667-.333-3.933zm-9.334 6.266V5.933l4.2 2.4-4.2 2.333z"/></symbol>
+<symbol id="logo" viewBox="0 0 474.15 58.26"><path d="M46 42.57a4.5 4.5 0 0 0-3 1.13c-4.1 3.46-8.13 5.39-14.08 5.39-10.78 0-18.58-8.93-18.58-20V29c0-11 7.88-19.87 18.58-19.87a20.42 20.42 0 0 1 13.48 5.03 4.95 4.95 0 0 0 7.88-3.86 4.94 4.94 0 0 0-1.93-3.94C43.44 2.57 37.73 0 29 0 12 0 0 13.12 0 29.13v.16c0 16.17 12.23 29 28.64 29 9.09 0 15.12-2.9 20.43-7.56a4.76 4.76 0 0 0 1.61-3.54A4.71 4.71 0 0 0 46 42.57zm36.86-17.95C72 22 69.43 20.12 69.43 15.77v-.16c0-3.7 3.38-6.68 9.17-6.68 4.43 0 8.61 1.45 13 4.26a4.78 4.78 0 0 0 2.57.72 4.6 4.6 0 0 0 4.67-4.59 4.47 4.47 0 0 0-2.17-3.94A31 31 0 0 0 78.76.16C67.58.16 59.53 6.84 59.53 16.5v.16c0 10.38 6.76 13.92 18.74 16.82C88.73 35.89 91 38.06 91 42.08v.16c0 4.18-3.86 7.08-10 7.08a24.42 24.42 0 0 1-15.77-5.79 4.79 4.79 0 0 0-7.56 3.7A4.64 4.64 0 0 0 59.61 51a35.05 35.05 0 0 0 21.16 7.1c11.83 0 20.11-6.28 20.11-16.82v-.16c0-9.34-6.11-13.6-18.02-16.5zm49.88 0c-10.86-2.57-13.43-4.51-13.43-8.85v-.16c0-3.7 3.38-6.68 9.17-6.68 4.42 0 8.61 1.45 13 4.26a4.78 4.78 0 0 0 2.57.72 4.6 4.6 0 0 0 4.67-4.59 4.47 4.47 0 0 0-2.17-3.94A31 31 0 0 0 128.64.16c-11.18 0-19.23 6.68-19.23 16.33v.16c0 10.38 6.76 13.92 18.74 16.82 10.46 2.41 12.71 4.59 12.71 8.61v.16c0 4.18-3.86 7.08-10 7.08a24.42 24.42 0 0 1-15.77-5.79 4.79 4.79 0 0 0-7.56 3.7 4.64 4.64 0 0 0 1.96 3.77 35.05 35.05 0 0 0 21.16 7.08c11.83 0 20.11-6.28 20.11-16.82v-.16c0-9.32-6.11-13.58-18.02-16.48zm45.62 3.22h-15.13a4.79 4.79 0 0 0 0 9.58h15.12a4.79 4.79 0 0 0 0-9.58zM224 1h-37.45a4.59 4.59 0 0 0 0 9.17h13.68v42.62a5 5 0 0 0 10 0V10.14H224A4.59 4.59 0 0 0 224 1zm38.86 0h-20.15a4.91 4.91 0 0 0-5 5v46.79a4.95 4.95 0 0 0 9.89 0V37.66h12.47l13.68 17.46a5.65 5.65 0 0 0 4.83 2.58 4.67 4.67 0 0 0 4.75-4.59 5.74 5.74 0 0 0-1.61-3.78l-10.78-13.6c7.56-2.33 12.79-7.81 12.79-16.82v-.16a17 17 0 0 0-4.66-12.15C275.45 3.06 269.9 1 262.82 1zm10.86 18.51c0 5.71-4.51 9.41-11.58 9.41h-14.53V10H262c7.32 0 11.67 3.3 11.67 9.33zm27-18.91a4.89 4.89 0 0 0-5 4.91v47.28a4.95 4.95 0 0 0 9.89 0V5.47a4.88 4.88 0 0 0-4.98-4.91zm62.67 42a4.5 4.5 0 0 0-3 1.13c-4.1 3.46-8.13 5.39-14.08 5.39-10.78 0-18.58-8.93-18.58-20V29c0-11 7.88-19.87 18.58-19.87a20.42 20.42 0 0 1 13.44 5.07 4.95 4.95 0 0 0 7.88-3.86 4.94 4.94 0 0 0-1.93-3.94C360.72 2.57 355 0 346.32 0c-17.06 0-29 13.12-29 29.13v.16c0 16.17 12.23 29 28.64 29 9.09 0 15.12-2.9 20.43-7.56a4.76 4.76 0 0 0 1.61-3.58 4.71 4.71 0 0 0-4.7-4.58zm41-16.82l17.54-16.9a4.81 4.81 0 0 0 1.77-3.7A4.53 4.53 0 0 0 419 .56a5.2 5.2 0 0 0-4.1 1.85l-26.66 26.88V5.47a4.95 4.95 0 0 0-9.9 0v47.32a4.95 4.95 0 0 0 9.9 0V41.12l9.17-8.85 18.1 23.09a5 5 0 0 0 4.18 2.33 4.83 4.83 0 0 0 5-4.83 5.36 5.36 0 0 0-1.37-3.54zm51.8-1.13c-10.92-2.65-13.49-4.53-13.49-8.88v-.16c0-3.7 3.38-6.68 9.17-6.68 4.42 0 8.61 1.45 13 4.26a4.78 4.78 0 0 0 2.57.72 4.6 4.6 0 0 0 4.67-4.59 4.47 4.47 0 0 0-2.17-3.94A31 31 0 0 0 452 .16c-11.15 0-19.2 6.68-19.2 16.34v.16c0 10.38 6.76 13.92 18.74 16.82 10.46 2.41 12.71 4.59 12.71 8.61v.16c0 4.18-3.86 7.08-10 7.08a24.42 24.42 0 0 1-15.77-5.79 4.79 4.79 0 0 0-7.56 3.7 4.64 4.64 0 0 0 1.96 3.76A35.05 35.05 0 0 0 454 58.1c11.83 0 20.11-6.28 20.11-16.82v-.16c.04-9.34-6.11-13.6-17.98-16.5z"/></symbol>
+</svg>
+  <svg width="0" height="0" class="visually-hidden">
+    <defs>
+
+      <linearGradient id="orange-to-pink" x1="1" x2="0" y1="1" y2="0">
+        <stop offset="0%" stop-color="#DA1B60" />
+        <stop offset="100%" stop-color="#ff8a00" />
+      </linearGradient>
+
+      <filter id="duotone_orange_pink">
+        <feColorMatrix type="matrix" result="grayscale"
+          values="1 0 0 0 0
+                  1 0 0 0 0
+                  1 0 0 0 0
+                  0 0 0 1 0" >
+        </feColorMatrix>
+        <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+          <feFuncR type="table" tableValues="0.7411764706 0.9882352941"></feFuncR>
+          <feFuncG type="table" tableValues="0.0431372549 0.7333333333"></feFuncG>
+          <feFuncB type="table" tableValues="0.568627451 0.05098039216"></feFuncB>
+          <feFuncA type="table" tableValues="0 1"></feFuncA>
+        </feComponentTransfer>
+      </filter>
+
+    </defs>
+  </svg>
+
+
+	<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="58ea232cc6a94e19f98af76b-text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/css-tricks.com\/creating-a-3d-cube-image-gallery\/":145808};
+	</script>
+				<script type="58ea232cc6a94e19f98af76b-text/javascript">
+/* <![CDATA[ */
+var bblpAJAX = {"ajaxurl":"https:\/\/css-tricks.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script src='https://css-tricks.com/wp-content/plugins/bbpress-live-preview-css-tricks/includes/assets/js/scripts.min.js?ver=1.0.0' type="58ea232cc6a94e19f98af76b-text/javascript"></script>
+<script type="58ea232cc6a94e19f98af76b-text/javascript">
+/* <![CDATA[ */
+var pollsL10n = {"ajax_url":"https:\/\/css-tricks.com\/wp-admin\/admin-ajax.php","text_wait":"Your last request is still being processed. Please wait a while ...","text_valid":"Please choose a valid poll answer.","text_multiple":"Maximum number of choices allowed: ","show_loading":"0","show_fading":"1"};
+/* ]]> */
+</script>
+<script src='https://css-tricks.com/wp-content/plugins/wp-polls/polls-js.js?ver=2.75.2' type="58ea232cc6a94e19f98af76b-text/javascript"></script>
+<script type="58ea232cc6a94e19f98af76b-text/javascript">
+/* <![CDATA[ */
+var markdownify = {"ajax_url":"\/wp-admin\/admin-ajax.php","nonce":"f29c299745"};
+/* ]]> */
+</script>
+<script src='https://css-tricks.com/wp-content/plugins/jetpack-markdown-live-preview-comments/js/markdownify.js?ver=1' type="58ea232cc6a94e19f98af76b-text/javascript"></script>
+<script src='https://css-tricks.com/wp-content/plugins/jetpack/modules/widgets/search/js/search-widget.js?ver=7.5.2' type="58ea232cc6a94e19f98af76b-text/javascript"></script>
+<script src='https://css-tricks.com/wp-includes/js/wp-embed.min.js?ver=5.2.2' type="58ea232cc6a94e19f98af76b-text/javascript"></script>
+<script type="58ea232cc6a94e19f98af76b-text/javascript">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+/* ]]> */
+</script>
+<script src='https://css-tricks.com/wp-content/plugins/jetpack/_inc/build/sharedaddy/sharing.min.js?ver=7.5.2' type="58ea232cc6a94e19f98af76b-text/javascript"></script>
+<script type="58ea232cc6a94e19f98af76b-text/javascript">
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+</script>
+<script type="58ea232cc6a94e19f98af76b-text/javascript" src='https://stats.wp.com/e-201928.js' async='async' defer='defer'></script>
+<script type="58ea232cc6a94e19f98af76b-text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:7.5.2',blog:'45537868',post:'145808',tz:'-7',srv:'css-tricks.com'} ]);
+	_stq.push([ 'clickTrackerInit', '45537868', '145808' ]);
+</script>
+
+
+<script src="https://css-tricks.com/wp-content/themes/CSS-Tricks-17/js/min/global-concat.min.js?v=3.4" type="58ea232cc6a94e19f98af76b-text/javascript">
+</script>
+
+
+
+
+
+
+
+<script type="58ea232cc6a94e19f98af76b-text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-68528-29', 'auto');
+
+  if (typeof articleYear !== "undefined") {
+    ga('set', 'dimension1', articleYear);
+  }
+  if (typeof articleAuthor !== "undefined") {
+    ga('set', 'dimension2', articleAuthor);
+  }
+  if (typeof articleType !== "undefined") {
+    ga('set', 'dimension3', articleType);
+  }
+
+  ga('send', 'pageview');
+</script>
+
+  <script async src="https://static.codepen.io/assets/embed/ei.js" type="58ea232cc6a94e19f98af76b-text/javascript"></script>
+
+
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/a2bd7673/cloudflare-static/rocket-loader.min.js" data-cf-settings="58ea232cc6a94e19f98af76b-|49" defer=""></script></body>
+
+</html>
